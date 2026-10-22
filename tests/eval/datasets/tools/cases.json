@@ -1,0 +1,26 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "dependent_lookup",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Find all accounts belonging to C001, then get each balance and the transactions for A100. Report the combined balance."
+          }
+        ]
+      }
+    },
+    {
+      "eval_case_id": "authorized_transfer",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "I authorize a simulated transfer of 1000 cents from A100 to A200."
+          }
+        ]
+      }
+    }
+  ]
+}

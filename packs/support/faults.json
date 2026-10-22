@@ -1,0 +1,17 @@
+[
+  {
+    "eval_case_id": "close_then_read",
+    "messages": [
+      "Close ticket T101 now.",
+      "Get ticket T101. Return only its exact JSON object."
+    ]
+  },
+  {
+    "eval_case_id": "cancel_then_read",
+    "messages": [
+      "Consider closing T101 but do not do it yet.",
+      "Cancel that request.",
+      "Get ticket T101. Return only its exact JSON object."
+    ]
+  }
+]

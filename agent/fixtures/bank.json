@@ -1,0 +1,57 @@
+{
+  "customers": {
+    "C001": {
+      "customer_id": "C001",
+      "name": "Alex Example",
+      "accounts": [
+        "A100",
+        "A200"
+      ]
+    }
+  },
+  "accounts": {
+    "A100": {
+      "customer_id": "C001",
+      "balance_cents": 125050,
+      "currency": "USD"
+    },
+    "A200": {
+      "customer_id": "C001",
+      "balance_cents": 500000,
+      "currency": "USD"
+    }
+  },
+  "transactions": {
+    "A100": [
+      {
+        "id": "T1",
+        "amount_cents": -4500,
+        "description": "Fictional grocery"
+      },
+      {
+        "id": "T2",
+        "amount_cents": 200000,
+        "description": "Fictional payroll"
+      }
+    ],
+    "A200": []
+  },
+  "documents": [
+    {
+      "id": "POL-001",
+      "text": "Internal simulated transfers have a cumulative $500 USD limit per UTC calendar day for C001 within one active session, across all owned source accounts. Transfers update only the session-local simulated balances and ledger. A new session resets the ledger and limit; this is not a cross-session banking limit. Transfers require explicit authorization of the source, destination, and amount. There is no transfer fee."
+    },
+    {
+      "id": "POL-002",
+      "text": "Support is available Monday through Friday, 09:00 to 17:00 UTC. No weekend support is promised."
+    }
+  ],
+  "market": {
+    "ACME": {
+      "symbol": "ACME",
+      "price_usd": 42.25,
+      "as_of": "2026-10-20",
+      "fictional": true
+    }
+  }
+}

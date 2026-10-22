@@ -1,0 +1,25 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "golden_balance",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "What is the balance of fictional account A100 in USD?"
+          }
+        ]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [
+            {
+              "text": "A100 has a balance of $1,250.50 USD."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

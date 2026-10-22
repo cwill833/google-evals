@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "framework": "adk",
+  "project_root": "../..",
+  "app_name": "evaluation_app",
+  "user_id": "C001",
+  "source_roots": [
+    "adk_eval_harness",
+    "examples",
+    "agent",
+    "pyproject.toml",
+    "uv.lock"
+  ],
+  "qps": 2,
+  "agent": "agent.agent:root_agent",
+  "policy": "policy.json",
+  "freeze": "freeze.json",
+  "suites": {
+    "response": {
+      "dataset": "../../tests/eval/datasets/response/cases.json",
+      "metrics": "../../tests/eval/configs/response.yaml"
+    },
+    "golden": {
+      "dataset": "../../tests/eval/datasets/golden/cases.json",
+      "metrics": "../../tests/eval/configs/golden.yaml"
+    },
+    "tools": {
+      "dataset": "../../tests/eval/datasets/tools/cases.json",
+      "metrics": "../../tests/eval/configs/tools.yaml"
+    },
+    "grounding": {
+      "dataset": "../../tests/eval/datasets/grounding/cases.json",
+      "metrics": "../../tests/eval/configs/grounding.yaml"
+    },
+    "rubric": {
+      "dataset": "../../tests/eval/datasets/rubric/cases.json",
+      "metrics": "../../tests/eval/configs/rubric.yaml"
+    },
+    "safety": {
+      "dataset": "../../tests/eval/datasets/safety/cases.json",
+      "metrics": "../../tests/eval/configs/safety.yaml"
+    },
+    "failure": {
+      "dataset": "../../tests/eval/datasets/failure/cases.json",
+      "metrics": "../../tests/eval/configs/failure.yaml"
+    },
+    "regression": {
+      "dataset": "../../tests/eval/datasets/regression/cases.json",
+      "metrics": "../../tests/eval/configs/regression.yaml"
+    },
+    "multi_turn": {
+      "dataset": "../../tests/eval/datasets/multi_turn/conversations.json",
+      "metrics": "../../tests/eval/configs/multi_turn.yaml"
+    },
+    "clarification": {
+      "dataset": "../../tests/eval/datasets/clarification/cases.json",
+      "metrics": "../../tests/eval/configs/clarification.yaml"
+    },
+    "holdout": {
+      "dataset": "../../tests/eval/datasets/holdout/conversations.json",
+      "metrics": "../../tests/eval/configs/holdout.yaml"
+    },
+    "prospective": {
+      "dataset": "holdout.json",
+      "metrics": "multi.yaml"
+    }
+  }
+}

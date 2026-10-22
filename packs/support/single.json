@@ -1,0 +1,46 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "read_T101",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Get ticket T101. Return only its exact JSON object."
+          }
+        ]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [
+            {
+              "text": "{\"ticket_id\": \"T101\", \"subject\": \"Printer offline\", \"status\": \"open\"}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "eval_case_id": "read_T202",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Get ticket T202. Return only its exact JSON object."
+          }
+        ]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [
+            {
+              "text": "{\"ticket_id\": \"T202\", \"subject\": \"VPN access\", \"status\": \"open\"}"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

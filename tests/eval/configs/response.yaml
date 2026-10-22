@@ -1,0 +1,4 @@
+metrics_to_run:
+  - general_quality
+  - text_quality
+  - instruction_following

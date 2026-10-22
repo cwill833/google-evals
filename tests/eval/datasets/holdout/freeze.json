@@ -1,0 +1,9 @@
+{
+  "purpose": "Prospective holdout v1: frozen before live execution. Do not tune prompts, fixtures, thresholds or cases in response to these scores. After inspection this is a published regression set; future unbiased validation requires a new holdout.",
+  "created_at": "2026-10-21",
+  "sha256": {
+    "tests/eval/datasets/holdout/conversations.json": "ebdd655e28fe193673019ca630dec92c4adc1c192ccc7680fa8d30da4377ee60",
+    "tests/eval/configs/holdout.yaml": "96dfa367377bf62248e063679aafc303b10f84077473553a8d0072c9ecf30799",
+    "tests/eval/policies/holdout.json": "71993b335ec9fa3b5af5e5d9a52bd9b8dff7791f30e37d56773f05213017f7db"
+  }
+}

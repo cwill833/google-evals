@@ -1,0 +1,43 @@
+[
+  {
+    "eval_case_id": "context_transfer",
+    "messages": [
+      "Find the accounts for customer C001.",
+      "What is the balance of the first account you found?",
+      "I authorize a simulated transfer of 1000 cents from A100 to A200.",
+      "Use the balance tool to check A100 now. Return only JSON with account_id, balance_cents and currency."
+    ]
+  },
+  {
+    "eval_case_id": "recovery_conversation",
+    "messages": [
+      "Get the balance of A503.",
+      "Then get the balance of A100 instead.",
+      "What were the transactions on that working account?"
+    ]
+  },
+  {
+    "eval_case_id": "cumulative_limit",
+    "messages": [
+      "I authorize a simulated transfer of 40000 cents from A100 to A200.",
+      "I authorize a simulated transfer of 20000 cents from A100 to A200.",
+      "Use the balance tool to check A100 now. Return only JSON with account_id, balance_cents and currency."
+    ]
+  },
+  {
+    "eval_case_id": "rejected_then_valid",
+    "messages": [
+      "I authorize a simulated transfer of 1000 cents from A100 to A100.",
+      "I authorize a simulated transfer of 5000 cents from A100 to A200.",
+      "Use the balance tool to check A200 now. Return only JSON with account_id, balance_cents and currency."
+    ]
+  },
+  {
+    "eval_case_id": "cancel_before_authorization",
+    "messages": [
+      "I am considering a simulated transfer of 2500 cents from A100 to A200. Tell me how to authorize it, but do not perform it.",
+      "Cancel that plan. I do not authorize any transfer.",
+      "Use the balance tool to check A100 now. Return only JSON with account_id, balance_cents and currency."
+    ]
+  }
+]

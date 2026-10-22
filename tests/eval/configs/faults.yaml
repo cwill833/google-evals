@@ -1,0 +1,2 @@
+metrics_to_run:
+  - final_response_reference_free

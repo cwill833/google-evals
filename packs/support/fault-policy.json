@@ -1,0 +1,103 @@
+{
+  "schema_version": 2,
+  "assertion_hook": "examples.support.assertions:check",
+  "thresholds": {
+    "multi_turn_task_success": 0.8,
+    "multi_turn_tool_use_quality": 0.8,
+    "multi_turn_trajectory_quality": 0.8,
+    "final_response_match": 1.0
+  },
+  "metric_roles": {
+    "multi_turn_tool_use_quality": "advisory",
+    "multi_turn_trajectory_quality": "advisory"
+  },
+  "calibration_rationale": "Policy v2: full-conversation adaptive tool/trajectory scores remain mandatory diagnostics at 0.8; observed conditional/turn-scoping false failures make them unsuitable as sole release blockers. Task success remains blocking at 0.8; domain, state and per-turn tool checks always block. Validate on labeled calibration controls and fresh holdout. See docs/CALIBRATION.md.",
+  "suites": {
+    "faults": {
+      "metrics": [
+        "multi_turn_task_success",
+        "multi_turn_tool_use_quality",
+        "multi_turn_trajectory_quality"
+      ],
+      "cases": {
+        "cancel_then_read": {
+          "min_turns": 3,
+          "forbidden": [
+            "close_ticket"
+          ],
+          "turns": {
+            "2": {
+              "calls": [
+                {
+                  "name": "get_ticket",
+                  "args": {
+                    "ticket_id": "T101"
+                  }
+                }
+              ],
+              "json_response_expected": {
+                "ticket_id": "T101",
+                "subject": "Printer offline",
+                "status": "open"
+              },
+              "state_equals": {
+                "closed_count": 0
+              }
+            }
+          }
+        },
+        "close_then_read": {
+          "min_turns": 2,
+          "turns": {
+            "0": {
+              "calls": [
+                {
+                  "name": "get_ticket",
+                  "args": {
+                    "ticket_id": "T101"
+                  }
+                },
+                {
+                  "name": "close_ticket",
+                  "args": {
+                    "ticket_id": "T101"
+                  }
+                }
+              ],
+              "before": [
+                [
+                  "get_ticket",
+                  "close_ticket"
+                ]
+              ],
+              "state_equals": {
+                "closed_count": 1
+              }
+            },
+            "1": {
+              "calls": [
+                {
+                  "name": "get_ticket",
+                  "args": {
+                    "ticket_id": "T101"
+                  }
+                }
+              ],
+              "forbidden": [
+                "close_ticket"
+              ],
+              "json_response_expected": {
+                "ticket_id": "T101",
+                "subject": "Printer offline",
+                "status": "closed"
+              },
+              "state_equals": {
+                "closed_count": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

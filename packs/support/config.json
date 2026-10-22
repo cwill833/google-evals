@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "framework": "adk",
+  "project_root": "../..",
+  "app_name": "evaluation_app",
+  "user_id": "evaluation_user",
+  "source_roots": [
+    "adk_eval_harness",
+    "examples",
+    "agent",
+    "pyproject.toml",
+    "uv.lock"
+  ],
+  "qps": 2,
+  "agent": "examples.support.agent:root_agent",
+  "policy": "policy.json",
+  "freeze": "freeze.json",
+  "suites": {
+    "single": {
+      "dataset": "single.json",
+      "metrics": "single.yaml"
+    },
+    "development": {
+      "dataset": "development.json",
+      "metrics": "multi.yaml"
+    },
+    "prospective": {
+      "dataset": "holdout.json",
+      "metrics": "multi.yaml"
+    }
+  }
+}

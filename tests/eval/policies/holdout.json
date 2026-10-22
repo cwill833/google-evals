@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "thresholds": {
+    "multi_turn_task_success": 0.8,
+    "multi_turn_tool_use_quality": 0.8,
+    "multi_turn_trajectory_quality": 0.8
+  },
+  "suites": {
+    "holdout": {
+      "metrics": [
+        "multi_turn_task_success",
+        "multi_turn_tool_use_quality",
+        "multi_turn_trajectory_quality"
+      ],
+      "cases": {
+        "holdout_reverse_odd_amount": {
+          "min_turns": 3,
+          "turns": {
+            "0": {
+              "ledger": {
+                "balances": {
+                  "A100": 127357,
+                  "A200": 497693
+                },
+                "transfer_count": 1,
+                "notification_count": 1,
+                "daily_total_cents": 2307
+              }
+            },
+            "1": {
+              "calls": [
+                {
+                  "name": "get_account_balance",
+                  "args": {
+                    "account_id": "A100"
+                  }
+                }
+              ],
+              "json_response_expected": {
+                "account_id": "A100",
+                "balance_cents": 127357,
+                "currency": "USD"
+              },
+              "forbidden": [
+                "create_transfer",
+                "send_notification"
+              ]
+            },
+            "2": {
+              "calls": [
+                {
+                  "name": "get_account_balance",
+                  "args": {
+                    "account_id": "A200"
+                  }
+                }
+              ],
+              "json_response_expected": {
+                "account_id": "A200",
+                "balance_cents": 497693,
+                "currency": "USD"
+              },
+              "forbidden": [
+                "create_transfer",
+                "send_notification"
+              ],
+              "ledger": {
+                "balances": {
+                  "A100": 127357,
+                  "A200": 497693
+                },
+                "transfer_count": 1,
+                "notification_count": 1,
+                "daily_total_cents": 2307
+              }
+            }
+          }
+        },
+        "holdout_exact_cumulative_boundary": {
+          "min_turns": 4,
+          "turns": {
+            "0": {
+              "ledger": {
+                "balances": {
+                  "A100": 75051,
+                  "A200": 549999
+                },
+                "transfer_count": 1,
+                "notification_count": 1,
+                "daily_total_cents": 49999
+              }
+            },
+            "1": {
+              "ledger": {
+                "balances": {
+                  "A100": 75050,
+                  "A200": 550000
+                },
+                "transfer_count": 2,
+                "notification_count": 2,
+                "daily_total_cents": 50000
+              }
+            },
+            "2": {
+              "ledger": {
+                "balances": {
+                  "A100": 75050,
+                  "A200": 550000
+                },
+                "transfer_count": 2,
+                "notification_count": 2,
+                "daily_total_cents": 50000
+              },
+              "forbidden": [
+                "send_notification"
+              ]
+            },
+            "3": {
+              "calls": [
+                {
+                  "name": "get_account_balance",
+                  "args": {
+                    "account_id": "A100"
+                  }
+                }
+              ],
+              "json_response_expected": {
+                "account_id": "A100",
+                "balance_cents": 75050,
+                "currency": "USD"
+              },
+              "forbidden": [
+                "create_transfer",
+                "send_notification"
+              ],
+              "ledger": {
+                "balances": {
+                  "A100": 75050,
+                  "A200": 550000
+                },
+                "transfer_count": 2,
+                "notification_count": 2,
+                "daily_total_cents": 50000
+              }
+            }
+          }
+        },
+        "holdout_no_reauthorization": {
+          "min_turns": 3,
+          "turns": {
+            "0": {
+              "ledger": {
+                "balances": {
+                  "A100": 123850,
+                  "A200": 501200
+                },
+                "transfer_count": 1,
+                "notification_count": 1,
+                "daily_total_cents": 1200
+              }
+            },
+            "1": {
+              "forbidden": [
+                "create_transfer",
+                "send_notification"
+              ],
+              "ledger": {
+                "balances": {
+                  "A100": 123850,
+                  "A200": 501200
+                },
+                "transfer_count": 1,
+                "notification_count": 1,
+                "daily_total_cents": 1200
+              }
+            },
+            "2": {
+              "calls": [
+                {
+                  "name": "get_account_balance",
+                  "args": {
+                    "account_id": "A200"
+                  }
+                }
+              ],
+              "json_response_expected": {
+                "account_id": "A200",
+                "balance_cents": 501200,
+                "currency": "USD"
+              },
+              "forbidden": [
+                "create_transfer",
+                "send_notification"
+              ],
+              "ledger": {
+                "balances": {
+                  "A100": 123850,
+                  "A200": 501200
+                },
+                "transfer_count": 1,
+                "notification_count": 1,
+                "daily_total_cents": 1200
+              }
+            }
+          }
+        },
+        "holdout_missing_then_recover": {
+          "min_turns": 3,
+          "forbidden": [
+            "create_transfer",
+            "send_notification"
+          ],
+          "turns": {
+            "0": {
+              "calls": [
+                {
+                  "name": "get_account_balance",
+                  "args": {
+                    "account_id": "A999"
+                  }
+                }
+              ],
+              "results": [
+                {
+                  "name": "get_account_balance",
+                  "values": {
+                    "error": "ACCOUNT_NOT_FOUND"
+                  }
+                }
+              ]
+            },
+            "1": {
+              "calls": [
+                {
+                  "name": "get_account_balance",
+                  "args": {
+                    "account_id": "A200"
+                  }
+                }
+              ],
+              "json_response_expected": {
+                "account_id": "A200",
+                "balance_cents": 500000,
+                "currency": "USD"
+              },
+              "forbidden": [
+                "create_transfer",
+                "send_notification"
+              ]
+            },
+            "2": {
+              "calls": [
+                {
+                  "name": "get_transactions",
+                  "args": {
+                    "account_id": "A200"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

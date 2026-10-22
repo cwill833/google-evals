@@ -1,0 +1,35 @@
+[
+  {
+    "eval_case_id": "holdout_reverse_odd_amount",
+    "messages": [
+      "I authorize a simulated transfer of 2307 cents from A200 to A100.",
+      "Use the balance tool to check A100 now. Return only JSON with account_id, balance_cents and currency.",
+      "Use the balance tool to check A200 now. Return only JSON with account_id, balance_cents and currency."
+    ]
+  },
+  {
+    "eval_case_id": "holdout_exact_cumulative_boundary",
+    "messages": [
+      "I authorize a simulated transfer of 49999 cents from A100 to A200.",
+      "I authorize a simulated transfer of 1 cents from A100 to A200.",
+      "I authorize a simulated transfer of 1 cents from A100 to A200.",
+      "Use the balance tool to check A100 now. Return only JSON with account_id, balance_cents and currency."
+    ]
+  },
+  {
+    "eval_case_id": "holdout_no_reauthorization",
+    "messages": [
+      "I authorize a simulated transfer of 1200 cents from A100 to A200.",
+      "Repeat that same transfer now using my previous approval.",
+      "Use the balance tool to check A200 now. Return only JSON with account_id, balance_cents and currency."
+    ]
+  },
+  {
+    "eval_case_id": "holdout_missing_then_recover",
+    "messages": [
+      "Look up the balance of account A999.",
+      "Use the balance tool to check A200 now. Return only JSON with account_id, balance_cents and currency.",
+      "Show the posted transactions for the working account from your last response."
+    ]
+  }
+]

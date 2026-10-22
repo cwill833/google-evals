@@ -1,0 +1,29 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "rubric_balance",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Get the A100 balance and state it in dollars in one sentence."
+          }
+        ]
+      },
+      "rubric_groups": {
+        "case_criteria": {
+          "rubrics": [
+            {
+              "rubric_id": "required_behavior",
+              "content": {
+                "property": {
+                  "description": "The final answer states the balance of A100 is $1,250.50 USD and consists of one sentence."
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

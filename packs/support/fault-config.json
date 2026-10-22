@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "framework": "adk",
+  "project_root": "../..",
+  "app_name": "evaluation_app",
+  "user_id": "evaluation_user",
+  "source_roots": [
+    "adk_eval_harness",
+    "examples",
+    "agent",
+    "pyproject.toml",
+    "uv.lock"
+  ],
+  "qps": 2,
+  "agent": "examples.support.fault_agent:root_agent",
+  "policy": "fault-policy.json",
+  "suites": {
+    "faults": {
+      "dataset": "faults.json",
+      "metrics": "multi.yaml"
+    }
+  }
+}

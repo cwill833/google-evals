@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "framework": "adk",
+  "project_root": "../..",
+  "app_name": "evaluation_app",
+  "user_id": "evaluation_user",
+  "source_roots": [
+    "adk_eval_harness",
+    "examples",
+    "agent",
+    "pyproject.toml",
+    "uv.lock",
+    "tests/fault_project"
+  ],
+  "qps": 2,
+  "agent": "examples.finance.fault_agent:root_agent",
+  "policy": "fault-policy.json",
+  "suites": {
+    "faults": {
+      "dataset": "../../tests/eval/datasets/faults/cases.json",
+      "metrics": "../../tests/eval/configs/faults.yaml"
+    }
+  }
+}
