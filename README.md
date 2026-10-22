@@ -1,5 +1,48 @@
 # Reusable Google ADK evaluation reference
 
+A configuration-driven evaluation harness for Python ADK agents. Add an agent and its
+datasets, evaluate locally, iterate, then evaluate the deployed agent using the same
+datasets and policy. Your existing pipeline owns deployment. Google supplies every
+semantic grade; this harness adds execution, coverage checks, release policy, recovery
+and evidence reports. Finance and support agents are examples used to test the platform.
+
+## Start here: use or compare this POC
+
+For an agent-to-agent implementation comparison, read
+[the handoff and comparison guide](docs/AGENT_HANDOFF.md). It includes a pasteable task,
+code map, comparison criteria and the limits of the available evidence.
+
+To review [PR #1](https://github.com/cwill833/google-evals/pull/1), check out its branch
+(the work is not yet merged into `main`):
+
+```bash
+git clone --branch codex/adk-evaluation-reference https://github.com/cwill833/google-evals.git
+cd google-evals
+uv sync --locked --python 3.12
+uv run pytest -q
+uv run python -m adk_eval_harness validate --config packs/support/config.json
+```
+
+These tests and the supplied pack's validation need no cloud credentials, deployment or
+historical run archive. Dependency installation needs network access. The offline test
+suite currently has 327 tests; synthetic grading fixtures verify harness behavior, not
+agent quality. Validation checks structure and native metadata export, not cloud access.
+
+Then choose your path:
+
+| Goal | Start with |
+| --- | --- |
+| Compare this platform with another implementation | [Handoff guide](docs/AGENT_HANDOFF.md) and [architecture](docs/ARCHITECTURE.md) |
+| Evaluate your own ADK agent and datasets | [Integration/configuration and EvalSet import](docs/REUSABLE_ADK.md) |
+| Run the supplied examples with real Google grades | Cloud setup and reusable harness commands below |
+| Evaluate an already deployed agent | [Hosted contract and configuration](docs/HOSTED_AND_REPORTS.md); the metadata extension is required |
+| Inspect results or recover failed grading | [Reports](docs/HOSTED_AND_REPORTS.md#read-or-regenerate-a-report) and [recovery](docs/QUEUE_AND_RECOVERY.md) |
+
+Local execution of a Gemini agent still calls Google and is billable. The offline checks
+above do not establish new live quality scores or hosted compatibility for your agent.
+
+## Evidence and review status
+
 Platform hardening and review results are in [HARDENING.md](docs/HARDENING.md)
 and [RESULTS.md](docs/RESULTS.md). Source control and the source ZIP exclude generated
 runs, reports and verification sidecars. Historical native evidence stays in a local
@@ -8,10 +51,9 @@ contract tests using small synthetic fixtures, without that archive or cloud acc
 
 **Quota-aware grading and explicit recovery:** one-host shared dispatch budgets, immutable grading attempts, and recovery of unavailable grades without agent reruns. See [queue and recovery](docs/QUEUE_AND_RECOVERY.md), [review and load results](docs/REVIEW_AND_LOAD.md), and [all evaluation results](docs/RESULTS.md).
 
-A configuration-driven evaluation harness for Python ADK agents, demonstrated by two
-independent Gemini-backed examples: fictional financial operations and support tickets.
-Google supplies every semantic grade. A separate fail-closed policy checks coverage,
-exact tool/state contracts and release thresholds. All example writes are offline simulations.
+The two Gemini-backed examples cover fictional financial operations and support tickets.
+A separate fail-closed policy checks coverage, exact tool/state contracts and release
+thresholds. All example tool writes are offline simulations.
 
 Start with [REUSABLE_ADK.md](docs/REUSABLE_ADK.md), [CALIBRATION.md](docs/CALIBRATION.md),
 and [UPSTREAM_ISSUES.md](docs/UPSTREAM_ISSUES.md). No non-ADK adapter is included.
@@ -20,7 +62,7 @@ and [UPSTREAM_ISSUES.md](docs/UPSTREAM_ISSUES.md). No non-ADK adapter is include
 **Metric coverage:** [METRIC_INVENTORY.md](docs/METRIC_INVENTORY.md).
 **Hosted ADK targets and readable evidence reports:** [HOSTED_AND_REPORTS.md](docs/HOSTED_AND_REPORTS.md).
 
-## Setup
+## Cloud setup for live evaluations
 
 Tested on macOS arm64 and a fresh Linux ARM64 Debian container under Docker Desktop.
 The runner requires POSIX process groups; the legacy shell wrapper also requires Bash.
@@ -164,7 +206,17 @@ The supplied v2 architecture is retained in `docs/agent_eval_architecture_v2.doc
 [RESEARCH.md](docs/RESEARCH.md) records source checks and operational findings.
 Azure pipelines, production deployment orchestration, model-comparison infrastructure and real transactions are out of scope. The opt-in private Cloud Run fixture supports hosted-adapter verification; it is not a production hosting platform.
 
-To regrade saved traces without executing the agent again:
+For new integrations, recover unavailable native grades from a finalized schema-3 run:
+
+```bash
+uv run python -m adk_eval_harness recover --config packs/support/config.json \
+  --from-run artifacts/runs/FAILED_RUN --output artifacts/runs/RECOVERED_RUN
+```
+
+Recovery preserves valid scores (including low scores) and failed attempts, executes no
+agent turns, and refuses incomplete generation. See [recovery limits](docs/QUEUE_AND_RECOVERY.md).
+
+The **legacy finance runner** also supports trace reuse, with different semantics:
 
 ```bash
 bash scripts/run_evals.sh --reuse-traces artifacts/runs/PREVIOUS_RUN \

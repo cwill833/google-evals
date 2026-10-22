@@ -6,15 +6,15 @@ Physical lines include comments and blanks; dependencies, lockfiles, docs and ge
 |---|---:|---:|
 | Reusable evaluation core | 14 | 2,872 |
 | Example agents, assertions and legacy agent | 13 | 412 |
-| Verification, deployment and support scripts | 25 | 2,451 |
+| Verification, deployment and support scripts | 25 | 2,452 |
 | Hosted server and container configuration | 7 | 58 |
 | Tests, synthetic fixtures and controlled fault agent | 29 | 3,879 |
 | Evaluation datasets, configs, policies and freezes | 51 | 3,329 |
 
-Implementation and supporting scripts: **5,793 lines**. With tests: **9,672**.
-Including evaluation data/configuration: **13,001**. Reusable core: **2,872 lines**.
+Implementation and supporting scripts: **5,794 lines**. With tests: **9,673**.
+Including evaluation data/configuration: **13,002**. Reusable core: **2,872 lines**.
 
-The PR/source package contains 165 files, including documentation, datasets and the
+The PR/source package contains 166 files, including documentation, datasets and the
 dependency lockfile. Generated runs, reports and archive verification sidecars are
 excluded. All 5,010 historical evidence files remain local, unchanged. Tests construct
 small synthetic fixtures in temporary directories; historical native replay is optional

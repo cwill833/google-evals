@@ -8,7 +8,8 @@ unit tests use synthetic fixtures and do not depend on this evidence.
 
 ## Source-only PR verification — PASS (2026-10-22)
 
-The PR and source ZIP contain **165 files**. All **5,010 historical evidence files**
+The source-only package verified in this pass contained **165 files** (the subsequent
+handoff guide adds one documentation file). All **5,010 historical evidence files**
 remain unchanged in the local archive; generated artifacts and verification sidecars
 are excluded from Git. No release asset, bucket upload or replacement public evidence
 archive was created.

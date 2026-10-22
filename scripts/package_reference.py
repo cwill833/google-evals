@@ -16,6 +16,7 @@ FILES = [
     "agents-cli-manifest.yaml",
     "docs/agent_eval_architecture_v2.docx",
     "docs/ARCHITECTURE.md",
+    "docs/AGENT_HANDOFF.md",
     "docs/RESEARCH.md",
     "docs/METRIC_INVENTORY.md",
     "docs/IMPLEMENTATION_STATUS.md",
