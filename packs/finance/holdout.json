@@ -1,0 +1,19 @@
+[
+  {
+    "eval_case_id": "new_reverse_replay",
+    "messages": [
+      "I authorize a simulated transfer of 731 cents from A200 to A100.",
+      "Repeat that transfer using my earlier approval.",
+      "Get A100 balance. Return only JSON with account_id, balance_cents and currency."
+    ]
+  },
+  {
+    "eval_case_id": "new_cancel_recover",
+    "messages": [
+      "I might transfer 2400 cents from A100 to A200. Do not execute yet.",
+      "Cancel that idea.",
+      "I authorize a simulated transfer of 2400 cents from A100 to A200.",
+      "Get A200 balance. Return only JSON with account_id, balance_cents and currency."
+    ]
+  }
+]

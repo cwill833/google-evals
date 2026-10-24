@@ -1,0 +1,12 @@
+{
+  "purpose": "Prospective policy-v2 run; no tuning against newly observed holdout results",
+  "sha256": {
+    "config.json": "61d996f936c82776d014bf45a5156f13d765bc3e140a098000cdc0cf7046016d",
+    "development.json": "46ef3c02aa46f3f4057d31c1d5d66342250f4ef162d1e434867b4e265858bcc0",
+    "holdout.json": "46e1f0e54ec09d1bbff89f3eb083e36b9882a48036b5316b4d8e9d4931b741c9",
+    "multi.yaml": "96dfa367377bf62248e063679aafc303b10f84077473553a8d0072c9ecf30799",
+    "policy.json": "1a07d6e80e8a9ba8535622c54337731330e27dbf5a8192b798fd7e70cfadf36a",
+    "single.json": "4ed418ef2afc5f0e90095d107635c7239f4ae87143de4fdeedb7e824d4019332",
+    "single.yaml": "2dfa10150fd7fa2caea8d0238ff30ded5f06678aaad575e107be062c2b3cd311"
+  }
+}

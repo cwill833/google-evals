@@ -1,0 +1,15 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "format_balance",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "What is the balance of A100? Return only JSON with keys account_id, balance_cents, currency."
+          }
+        ]
+      }
+    }
+  ]
+}

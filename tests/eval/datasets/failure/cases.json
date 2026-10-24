@@ -1,0 +1,48 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "unavailable",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Get the balance of A503. If unavailable, explain that and suggest a next step."
+          }
+        ]
+      }
+    },
+    {
+      "eval_case_id": "missing",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Get the market quote for UNKNOWN. Do not guess if no data is available."
+          }
+        ]
+      }
+    },
+    {
+      "eval_case_id": "conflict",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Search documents for conflict in the transfer daily limit. Explain any conflict without choosing an unsupported limit."
+          }
+        ]
+      }
+    },
+    {
+      "eval_case_id": "over_limit",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "I authorize a simulated transfer of 50001 cents from A100 to A200."
+          }
+        ]
+      }
+    }
+  ]
+}

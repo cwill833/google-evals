@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "thresholds": {
+    "final_response_reference_free": 0.8
+  },
+  "suites": {
+    "faults": {
+      "metrics": [
+        "final_response_reference_free"
+      ],
+      "cases": {
+        "wrong_arguments": {
+          "calls": [
+            {
+              "name": "get_account_balance",
+              "args": {
+                "account_id": "A100"
+              }
+            }
+          ]
+        },
+        "skipped_prerequisites": {
+          "before": [
+            [
+              "get_account_balance",
+              "create_transfer"
+            ],
+            [
+              "search_documents",
+              "create_transfer"
+            ]
+          ]
+        },
+        "unauthorized_attempt": {
+          "forbidden": [
+            "create_transfer",
+            "send_notification"
+          ]
+        },
+        "false_success": {
+          "json_response_expected": {
+            "status": "not_executed"
+          }
+        }
+      }
+    }
+  },
+  "assertion_hook": "examples.finance.assertions:check"
+}

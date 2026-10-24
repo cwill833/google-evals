@@ -1,0 +1,31 @@
+{
+  "purpose": "Prospective policy-v2 run; no tuning against newly observed holdout results",
+  "sha256": {
+    "../../tests/eval/configs/clarification.yaml": "4a2ef97b9c4d2ca5ed3ec3a2b238db02aa6578ff4e8ea56bc133f5f9f8624905",
+    "../../tests/eval/configs/failure.yaml": "66bd5d7b2f98c796598c521b21b63b6faa33fe7f2b5e748bee785ec011309996",
+    "../../tests/eval/configs/golden.yaml": "2dfa10150fd7fa2caea8d0238ff30ded5f06678aaad575e107be062c2b3cd311",
+    "../../tests/eval/configs/grounding.yaml": "e9589e81214557a1f3604aa65f8337d14f5d6d9f0398730df106090b68ec5062",
+    "../../tests/eval/configs/holdout.yaml": "96dfa367377bf62248e063679aafc303b10f84077473553a8d0072c9ecf30799",
+    "../../tests/eval/configs/multi_turn.yaml": "96dfa367377bf62248e063679aafc303b10f84077473553a8d0072c9ecf30799",
+    "../../tests/eval/configs/regression.yaml": "2dfa10150fd7fa2caea8d0238ff30ded5f06678aaad575e107be062c2b3cd311",
+    "../../tests/eval/configs/response.yaml": "e1b45c3dd386cd6752861742570b5464fca25f558fd957db15c6331ad7788c2b",
+    "../../tests/eval/configs/rubric.yaml": "4a2ef97b9c4d2ca5ed3ec3a2b238db02aa6578ff4e8ea56bc133f5f9f8624905",
+    "../../tests/eval/configs/safety.yaml": "a57601c399f94dd90b8a0dd64a48e8dc35a56ca0312a1134647d70f7c575fb2f",
+    "../../tests/eval/configs/tools.yaml": "27396833102ebac2297803838f6e8ad5d018a1764917d77dfe90fc90e2f1104f",
+    "../../tests/eval/datasets/clarification/cases.json": "be73bcf0867a8621ddd82ba1bc0aae70d4c60e71ca3a21fe36d3e9a55bdef5f8",
+    "../../tests/eval/datasets/failure/cases.json": "74a6ed4b0fb724a142fcc4ae19737ca2cd2193233ec35832e816659225b38b3e",
+    "../../tests/eval/datasets/golden/cases.json": "0d3ccd440558f27ab56286d3d776f83a1276fb08417be54eda3bfbe16ef1359e",
+    "../../tests/eval/datasets/grounding/cases.json": "e295dc1553c56a0cd0f61b84e22b888a6c54006e0e945e2767ee99b15b7cd2ff",
+    "../../tests/eval/datasets/holdout/conversations.json": "ebdd655e28fe193673019ca630dec92c4adc1c192ccc7680fa8d30da4377ee60",
+    "../../tests/eval/datasets/multi_turn/conversations.json": "6dcfe5c30dc267e9c5da96526694ff6db57b02876437951507b2247929e15618",
+    "../../tests/eval/datasets/regression/cases.json": "a63640cab107f5d96e0771bdb72facb0fb581c2ba1f1c18eb4191d8493df833e",
+    "../../tests/eval/datasets/response/cases.json": "6e75e9d990dec956ecdc0ae5fac3a450474a94bc8d5699aa58dcc3143b530368",
+    "../../tests/eval/datasets/rubric/cases.json": "087b56db398ef94511d071723b2ded6186d056e3f6fab16091a40c047ff59a89",
+    "../../tests/eval/datasets/safety/cases.json": "cdd06836a8733565e87c87fa88e44e8083524cb24f64fda261f11c9cb2ca067c",
+    "../../tests/eval/datasets/tools/cases.json": "3b107eb9938f2d1b96779820f058cc411ce190dd08c15043d9bcc67b473849c7",
+    "config.json": "59e4ab47d485ec7f3d01429650047d475639566a8c24e50a209474e44b25c924",
+    "holdout.json": "ee5d9aeced5b65ab4cd9b36f665441ca9433cba26753bdd502c0d52689274bf6",
+    "multi.yaml": "96dfa367377bf62248e063679aafc303b10f84077473553a8d0072c9ecf30799",
+    "policy.json": "e6976549315315be884185d13934df5795f3e78437bcb879b465a88ac7aa6f74"
+  }
+}

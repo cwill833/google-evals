@@ -1,0 +1,9 @@
+name: controlled-fault-injection
+acli_version: 1.11.0
+agent_directory: fault_agent
+language: python
+region: global
+create_params:
+  deployment_target: none
+  session_type: in_memory
+  cicd_runner: skip

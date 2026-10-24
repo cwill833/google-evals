@@ -1,0 +1,32 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.env
+.env.*
+!.env.example
+*.pem
+*credentials*.json
+.google-agents-cli/
+.adk/
+validation/
+artifacts/runs/
+artifacts/private/
+.DS_Store
+artifacts/traces/
+artifacts/grade_results/
+artifacts/*.zip
+.ruff_cache/
+# Pre-existing research is retained locally, outside the public reference.
+the-agent-quality-gate.html
+docs/agent-eval-architecture.md
+docs/architecture-review.md
+docs/build-agent-prompt.md
+docs/build-spec.md
+docs/eval-conventions.md
+docs/handoff-brief.md
+docs/live-validation-runbook.md
+docs/diagrams/
+docs/fixtures/
+
+# Generated runs, reports, archives and verification sidecars stay local.
+artifacts/

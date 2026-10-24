@@ -1,0 +1,1 @@
+{"eval_cases":[{"eval_case_id":"balance","prompt":{"role":"user","parts":[{"text":"What is the balance of fictional account A100 in USD?"}]},"reference":{"response":{"role":"model","parts":[{"text":"The balance of fictional account A100 is $1,250.50 USD."}]}}}]}

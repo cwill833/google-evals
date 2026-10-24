@@ -1,0 +1,487 @@
+{
+  "date": "2026-10-24",
+  "scope": "Two saved hosted support cases; optional Google UI publication proof only; harness unchanged",
+  "metric": "final_response_match_v2",
+  "inputs": {
+    "source": "saved-traces.json",
+    "sha256": "63e869cb72c77d75d4a18f68b955f3bb36593ee30b55125c27097153516311c3",
+    "native_results": "original-native-grades.json",
+    "native_results_sha256": "6999f51a50024709f8f5703119413a5826b0febf632eec08fcce8463e50c7dd7",
+    "published_grade_excerpt_sha256": "aeb745ad114f60063b76d7df967b5c1ab11cd82d918c6350585f195fc94a0f1c"
+  },
+  "original_score_publication": {
+    "status": "Verified in Experiments UI and API",
+    "regraded": false,
+    "metrics": {
+      "case_0_native_score": 1,
+      "case_1_native_score": 1,
+      "native_mean_score": 1,
+      "native_pass_rate": 1,
+      "native_valid_cases": 2,
+      "native_error_cases": 0
+    },
+    "url": "https://console.cloud.google.com/agent-platform/experiments/locations/us-central1/experiments/adk-eval-ui-proof-20261024/runs/adk-eval-ui-proof-20261024-existing-native-scores/metrics?project=YOUR_PROJECT_ID",
+    "limitations": "Generic metrics/parameters view. Not an automatic full prompt/trace/grading report import."
+  },
+  "cloud_regrading_runs": [
+    {
+      "route": "cli",
+      "name": "projects/PROJECT_NUMBER/locations/global/evaluationRuns/8012827326859444224",
+      "state": "SUCCEEDED",
+      "summary": {
+        "metrics": {
+          "Candidate 1/final_response_match_v2/STANDARD_DEVIATION": 0,
+          "Candidate 1/final_response_match_v2/VARIANCE": 0,
+          "Candidate 1/final_response_match_v2/PERCENTILE_P90": 1,
+          "Candidate 1/final_response_match_v2/AVERAGE": 1,
+          "Candidate 1/final_response_match_v2/MAXIMUM": 1,
+          "Candidate 1/final_response_match_v2/PERCENTILE_P99": 1,
+          "Candidate 1/final_response_match_v2/MODE": 1,
+          "Candidate 1/final_response_match_v2/MINIMUM": 1,
+          "Candidate 1/final_response_match_v2/PERCENTILE_P95": 1,
+          "Candidate 1/final_response_match_v2/MEDIAN": 1
+        },
+        "total_items": 2
+      },
+      "cases": [
+        {
+          "prompt": "Get ticket T101. Return only its exact JSON object.",
+          "candidate_results": [
+            {
+              "candidate": "Candidate 1",
+              "metric": "final_response_match_v2",
+              "score": 1.0,
+              "explanation": "The user asked for the exact JSON object for ticket T101. The agent's response provides a JSON object with the correct keys (`status`, `subject`, `ticket_id`) and corresponding values (`open`, `Printer offline`, `T101`). The reference response also provides a JSON object with the same keys and values. Although the order of the keys differs between the agent's response and the reference response, the content of the JSON object is identical. In JSON, the order of keys in an object is generally not considered significant for equality. Therefore, the agent's response correctly fulfills the user's request for the exact JSON object."
+            }
+          ]
+        },
+        {
+          "prompt": "Get ticket T202. Return only its exact JSON object.",
+          "candidate_results": [
+            {
+              "candidate": "Candidate 1",
+              "metric": "final_response_match_v2",
+              "score": 1.0,
+              "explanation": "The user asked to retrieve ticket T202 and requested its 'exact JSON object'.\nThe agent response provided a JSON object: `{\"status\":\"open\",\"subject\":\"VPN access\",\"ticket_id\":\"T202\"}`.\nThe reference response also provided a JSON object: `{\"ticket_id\": \"T202\", \"subject\": \"VPN access\", \"status\": \"open\"}`.\nBoth the agent's and reference's JSON objects contain the same key-value pairs (`ticket_id: T202`, `subject: VPN access`, `status: open`).\nThe order of keys in a JSON object typically does not affect its validity or equivalence, as long as the key-value pairs are the same.\nTherefore, the agent's response correctly provides the requested JSON object for ticket T202."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "sdk",
+      "name": "projects/PROJECT_NUMBER/locations/global/evaluationRuns/8319072101520637952",
+      "state": "SUCCEEDED",
+      "summary": {
+        "metrics": {
+          "Candidate 1/final_response_match_v2/STANDARD_DEVIATION": 0,
+          "Candidate 1/final_response_match_v2/VARIANCE": 0,
+          "Candidate 1/final_response_match_v2/PERCENTILE_P90": 1,
+          "Candidate 1/final_response_match_v2/AVERAGE": 1,
+          "Candidate 1/final_response_match_v2/MAXIMUM": 1,
+          "Candidate 1/final_response_match_v2/PERCENTILE_P99": 1,
+          "Candidate 1/final_response_match_v2/MODE": 1,
+          "Candidate 1/final_response_match_v2/MINIMUM": 1,
+          "Candidate 1/final_response_match_v2/PERCENTILE_P95": 1,
+          "Candidate 1/final_response_match_v2/MEDIAN": 1
+        },
+        "total_items": 2
+      },
+      "cases": [
+        {
+          "prompt": "Get ticket T101. Return only its exact JSON object.",
+          "candidate_results": [
+            {
+              "candidate": "Candidate 1",
+              "metric": "final_response_match_v2",
+              "score": 1.0,
+              "explanation": "The user asked for the exact JSON object for ticket T101.\nThe agent response provides a JSON object with the keys 'status', 'subject', and 'ticket_id' and their corresponding values.\nThe reference response also provides a JSON object with the same keys and values, albeit in a different order.\nIn JSON, the order of keys does not matter for equivalence. The content of the JSON object provided by the agent is identical to the content in the reference response."
+            }
+          ]
+        },
+        {
+          "prompt": "Get ticket T202. Return only its exact JSON object.",
+          "candidate_results": [
+            {
+              "candidate": "Candidate 1",
+              "metric": "final_response_match_v2",
+              "score": 1.0,
+              "explanation": "The user asked for the exact JSON object for ticket T202.\nThe agent response provides a JSON object: `{\"status\":\"open\",\"subject\":\"VPN access\",\"ticket_id\":\"T202\"}`.\nThe reference response provides a JSON object: `{\"ticket_id\": \"T202\", \"subject\": \"VPN access\", \"status\": \"open\"}`.\nBoth the agent's response and the reference response contain the same key-value pairs for the ticket, differing only in the order of the keys. For a JSON object, key order does not typically affect equality unless explicitly specified, which is not the case here. The content and values are identical."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "regional",
+      "name": "projects/PROJECT_NUMBER/locations/us-central1/evaluationRuns/6127525525037514752",
+      "state": "SUCCEEDED",
+      "summary": {
+        "metrics": {
+          "Candidate 1/final_response_match_v2/STANDARD_DEVIATION": 0,
+          "Candidate 1/final_response_match_v2/VARIANCE": 0,
+          "Candidate 1/final_response_match_v2/PERCENTILE_P90": 1,
+          "Candidate 1/final_response_match_v2/AVERAGE": 1,
+          "Candidate 1/final_response_match_v2/MAXIMUM": 1,
+          "Candidate 1/final_response_match_v2/PERCENTILE_P99": 1,
+          "Candidate 1/final_response_match_v2/MODE": 1,
+          "Candidate 1/final_response_match_v2/MINIMUM": 1,
+          "Candidate 1/final_response_match_v2/PERCENTILE_P95": 1,
+          "Candidate 1/final_response_match_v2/MEDIAN": 1
+        },
+        "total_items": 2
+      },
+      "cases": [
+        {
+          "prompt": "Get ticket T202. Return only its exact JSON object.",
+          "candidate_results": [
+            {
+              "candidate": "Candidate 1",
+              "metric": "final_response_match_v2",
+              "score": 1.0,
+              "explanation": "The user requested the exact JSON object for ticket T202. The agent's response provides a JSON object with the keys 'status', 'subject', and 'ticket_id' and their corresponding values. The reference response provides the same key-value pairs, just in a different order. The order of keys in a JSON object does not affect its validity or content. Therefore, the agent's response correctly provides the requested JSON object for ticket T202."
+            }
+          ]
+        },
+        {
+          "prompt": "Get ticket T101. Return only its exact JSON object.",
+          "candidate_results": [
+            {
+              "candidate": "Candidate 1",
+              "metric": "final_response_match_v2",
+              "score": 1.0,
+              "explanation": "The user asked for the exact JSON object for ticket T101.\nThe agent response provided a JSON object: `{\"status\": \"open\", \"subject\": \"Printer offline\", \"ticket_id\": \"T101\"}`.\nThe reference response provided a JSON object: `{\"ticket_id\": \"T101\", \"subject\": \"Printer offline\", \"status\": \"open\"}`.\nBoth JSON objects contain the same key-value pairs: `ticket_id: T101`, `subject: Printer offline`, and `status: open`.\nThe only difference is the order of the keys within the JSON object. In JSON, the order of keys in an object is not considered significant for equality.\nThe agent successfully returned all the requested information (the exact JSON object with correct data) as confirmed by the reference response."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "regional-candidate",
+      "name": "projects/PROJECT_NUMBER/locations/us-central1/evaluationRuns/865069360455090176",
+      "state": "SUCCEEDED",
+      "summary": {
+        "metrics": {
+          "Candidate 1/final_response_match_v2/STANDARD_DEVIATION": 0,
+          "Candidate 1/final_response_match_v2/VARIANCE": 0,
+          "Candidate 1/final_response_match_v2/PERCENTILE_P90": 1,
+          "Candidate 1/final_response_match_v2/AVERAGE": 1,
+          "Candidate 1/final_response_match_v2/MAXIMUM": 1,
+          "Candidate 1/final_response_match_v2/PERCENTILE_P99": 1,
+          "Candidate 1/final_response_match_v2/MODE": 1,
+          "Candidate 1/final_response_match_v2/MINIMUM": 1,
+          "Candidate 1/final_response_match_v2/PERCENTILE_P95": 1,
+          "Candidate 1/final_response_match_v2/MEDIAN": 1
+        },
+        "total_items": 2
+      },
+      "cases": [
+        {
+          "prompt": "Get ticket T202. Return only its exact JSON object.",
+          "candidate_results": [
+            {
+              "candidate": "Candidate 1",
+              "metric": "final_response_match_v2",
+              "score": 1.0,
+              "explanation": "The user asked for the exact JSON object for ticket T202.\nThe agent's response provides a JSON object: `{\"status\":\"open\",\"subject\":\"VPN access\",\"ticket_id\":\"T202\"}`.\nThe reference response provides a JSON object: `{\"ticket_id\": \"T202\", \"subject\": \"VPN access\", \"status\": \"open\"}`.\nBoth JSON objects contain the same key-value pairs and the same data. The order of keys in a JSON object does not affect its semantic content.\nThus, the agent's response correctly fulfills the user's request by returning the exact JSON object."
+            }
+          ]
+        },
+        {
+          "prompt": "Get ticket T101. Return only its exact JSON object.",
+          "candidate_results": [
+            {
+              "candidate": "Candidate 1",
+              "metric": "final_response_match_v2",
+              "score": 1.0,
+              "explanation": "The user requested the exact JSON object for ticket T101. The agent's response provides a JSON object with the correct key-value pairs: 'status': 'open', 'subject': 'Printer offline', and 'ticket_id': 'T101'. Although the order of keys differs from the reference response, the content of the JSON object is identical, and the order of keys in a JSON object typically does not affect its validity unless a specific schema or API requires a strict order, which is not indicated here. Therefore, the agent's response correctly fulfills the user's request."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "total_new_case_grades": 8,
+  "explicit_candidate_reused_identical_saved_requests": true,
+  "native_ui": {
+    "regional": "Experiment appears in Models > Evaluation; detail shows the two prompts and golden responses, but no scores/candidate results. Explicit candidate config did not resolve this.",
+    "global": "Experiments exist through API and the explicit SDK experiment opens by direct link, but they were absent from the Evaluation list; detail shows dataset only.",
+    "agents_evaluation": "No proof experiment rows observed.",
+    "regional_url": "https://console.cloud.google.com/agent-platform/evaluation/locations/us-central1/evaluationExperiments/4856164627886637056?project=YOUR_PROJECT_ID"
+  },
+  "failed_and_blocked_attempts": [
+    {
+      "attempt": "Explicit SDK Metric(name=final_response_match)",
+      "outcome": "Rejected Unsupported metric name; corrected to final_response_match_v2; exact error retained in sdk_failure."
+    },
+    {
+      "attempt": "Browser CSV upload",
+      "outcome": "Blocked because ChatGPT Chrome extension Allow access to file URLs is disabled; no upload/evaluation submitted."
+    }
+  ],
+  "untested": "Importing arbitrary previously computed grades as a completed native Evaluation run. Public SDK exposes RESULT items, but this alone does not prove a UI-visible completed experiment. Local ADK Web import was not exercised in this cloud UI proof.",
+  "related_issue": {
+    "url": "https://github.com/google/agents-cli/issues/54",
+    "observation": "Issue is still open. Installed SDK now creates experiments automatically, so old lack-of-creation report is not a complete explanation of observed list/result rendering limitations."
+  },
+  "resources": {
+    "bucket": "gs://YOUR_PROOF_BUCKET",
+    "objects": 16,
+    "bytes": 99251,
+    "kept_for": "Original proof resources were retained at observation time; persistence is not guaranteed. Public evidence is self-contained.",
+    "hosted_agent_deployed": false,
+    "adk_agent_invocations": 0,
+    "cost": "Four two-case native regrading runs may incur judge charges; exact incremental cost not yet measured. Bucket storage and metadata retained."
+  },
+  "preservation": {
+    "checked": 5176,
+    "changed_or_missing": [],
+    "git_status": "",
+    "note": "This verification preceded publication edits; records original research-session preservation only."
+  },
+  "recommendation": "Keep existing eval flow and canonical local reports. Optional post-run logging of unchanged native metrics into Experiments is proven. Do not promise full native Evaluation UI integration until its missing candidate/grade rendering is resolved.",
+  "publication": {
+    "kind": "Curated historical live evidence, not synthetic test fixtures",
+    "redactions": "Project ID/number, bucket name and private local source paths replaced with placeholders. Native prompts, replies, scores and explanations preserved. Screenshots and raw logs stay local.",
+    "original_grade_excerpt": "original-native-grades.json omits evaluation_dataset (saved separately as saved-traces.json); original source hash is not the excerpt hash."
+  },
+  "api_readbacks": {
+    "cli": {
+      "name": "projects/PROJECT_NUMBER/locations/global/evaluationRuns/8012827326859444224",
+      "display_name": "evaluation_run_b89f05d9-f4b5-4b15-b981-845301cfb08b",
+      "metadata": {
+        "pipeline_id": "1238562637093011456"
+      },
+      "create_time": "2026-10-24T22:31:37.523980Z",
+      "completion_time": "2026-10-24T22:31:47.283350Z",
+      "state": "SUCCEEDED",
+      "evaluation_set_snapshot": "projects/PROJECT_NUMBER/locations/global/evaluationSets/8754346764724600832",
+      "data_source": {
+        "evaluation_set": "projects/PROJECT_NUMBER/locations/global/evaluationSets/5176236860778741760"
+      },
+      "evaluation_run_results": {
+        "evaluation_set": "projects/PROJECT_NUMBER/locations/global/evaluationSets/8754346764724600832",
+        "summary_metrics": {
+          "metrics": {
+            "Candidate 1/final_response_match_v2/STANDARD_DEVIATION": 0,
+            "Candidate 1/final_response_match_v2/VARIANCE": 0,
+            "Candidate 1/final_response_match_v2/PERCENTILE_P90": 1,
+            "Candidate 1/final_response_match_v2/AVERAGE": 1,
+            "Candidate 1/final_response_match_v2/MAXIMUM": 1,
+            "Candidate 1/final_response_match_v2/PERCENTILE_P99": 1,
+            "Candidate 1/final_response_match_v2/MODE": 1,
+            "Candidate 1/final_response_match_v2/MINIMUM": 1,
+            "Candidate 1/final_response_match_v2/PERCENTILE_P95": 1,
+            "Candidate 1/final_response_match_v2/MEDIAN": 1
+          },
+          "total_items": 2
+        }
+      },
+      "evaluation_config": {
+        "metrics": [
+          {
+            "metric": "final_response_match_v2",
+            "metric_config": {
+              "predefined_metric_spec": {
+                "metric_spec_name": "final_response_match_v2"
+              }
+            }
+          }
+        ],
+        "output_config": {
+          "gcs_destination": {
+            "output_uri_prefix": "gs://YOUR_PROOF_BUCKET/cli"
+          }
+        }
+      }
+    },
+    "sdk": {
+      "name": "projects/PROJECT_NUMBER/locations/global/evaluationRuns/8319072101520637952",
+      "display_name": "Two saved support cases — SDK regrade",
+      "metadata": {
+        "pipeline_id": "481957899694768128"
+      },
+      "create_time": "2026-10-24T22:32:45.834640Z",
+      "completion_time": "2026-10-24T22:32:52.719978Z",
+      "state": "SUCCEEDED",
+      "evaluation_set_snapshot": "projects/PROJECT_NUMBER/locations/global/evaluationSets/6460888654486175744",
+      "data_source": {
+        "evaluation_set": "projects/PROJECT_NUMBER/locations/global/evaluationSets/7428036674463989760"
+      },
+      "evaluation_run_results": {
+        "evaluation_set": "projects/PROJECT_NUMBER/locations/global/evaluationSets/6460888654486175744",
+        "summary_metrics": {
+          "metrics": {
+            "Candidate 1/final_response_match_v2/STANDARD_DEVIATION": 0,
+            "Candidate 1/final_response_match_v2/VARIANCE": 0,
+            "Candidate 1/final_response_match_v2/PERCENTILE_P90": 1,
+            "Candidate 1/final_response_match_v2/AVERAGE": 1,
+            "Candidate 1/final_response_match_v2/MAXIMUM": 1,
+            "Candidate 1/final_response_match_v2/PERCENTILE_P99": 1,
+            "Candidate 1/final_response_match_v2/MODE": 1,
+            "Candidate 1/final_response_match_v2/MINIMUM": 1,
+            "Candidate 1/final_response_match_v2/PERCENTILE_P95": 1,
+            "Candidate 1/final_response_match_v2/MEDIAN": 1
+          },
+          "total_items": 2
+        }
+      },
+      "evaluation_config": {
+        "metrics": [
+          {
+            "metric": "final_response_match_v2",
+            "metric_config": {
+              "predefined_metric_spec": {
+                "metric_spec_name": "final_response_match_v2"
+              }
+            }
+          }
+        ],
+        "output_config": {
+          "gcs_destination": {
+            "output_uri_prefix": "gs://YOUR_PROOF_BUCKET/sdk-corrected"
+          }
+        }
+      }
+    },
+    "regional": {
+      "name": "projects/PROJECT_NUMBER/locations/us-central1/evaluationRuns/6127525525037514752",
+      "display_name": "Two saved support cases — regional regrade",
+      "metadata": {
+        "pipeline_id": "7716024477305274368"
+      },
+      "create_time": "2026-10-24T22:34:44.178139Z",
+      "completion_time": "2026-10-24T22:34:48.689562Z",
+      "state": "SUCCEEDED",
+      "evaluation_set_snapshot": "projects/PROJECT_NUMBER/locations/us-central1/evaluationSets/3485546418049908736",
+      "data_source": {
+        "evaluation_set": "projects/PROJECT_NUMBER/locations/us-central1/evaluationSets/147816144214949888"
+      },
+      "evaluation_run_results": {
+        "evaluation_set": "projects/PROJECT_NUMBER/locations/us-central1/evaluationSets/3485546418049908736",
+        "summary_metrics": {
+          "metrics": {
+            "Candidate 1/final_response_match_v2/STANDARD_DEVIATION": 0,
+            "Candidate 1/final_response_match_v2/VARIANCE": 0,
+            "Candidate 1/final_response_match_v2/PERCENTILE_P90": 1,
+            "Candidate 1/final_response_match_v2/AVERAGE": 1,
+            "Candidate 1/final_response_match_v2/MAXIMUM": 1,
+            "Candidate 1/final_response_match_v2/PERCENTILE_P99": 1,
+            "Candidate 1/final_response_match_v2/MODE": 1,
+            "Candidate 1/final_response_match_v2/MINIMUM": 1,
+            "Candidate 1/final_response_match_v2/PERCENTILE_P95": 1,
+            "Candidate 1/final_response_match_v2/MEDIAN": 1
+          },
+          "total_items": 2
+        }
+      },
+      "evaluation_config": {
+        "metrics": [
+          {
+            "metric": "final_response_match_v2",
+            "metric_config": {
+              "predefined_metric_spec": {
+                "metric_spec_name": "final_response_match_v2"
+              }
+            }
+          }
+        ],
+        "output_config": {
+          "gcs_destination": {
+            "output_uri_prefix": "gs://YOUR_PROOF_BUCKET/regional"
+          }
+        }
+      }
+    },
+    "regional-candidate": {
+      "name": "projects/PROJECT_NUMBER/locations/us-central1/evaluationRuns/865069360455090176",
+      "display_name": "Saved responses with explicit matching candidate",
+      "metadata": {
+        "pipeline_id": "2500856108810240000"
+      },
+      "create_time": "2026-10-24T22:37:40.574878Z",
+      "completion_time": "2026-10-24T22:37:44.716699Z",
+      "state": "SUCCEEDED",
+      "evaluation_set_snapshot": "projects/PROJECT_NUMBER/locations/us-central1/evaluationSets/3585751509758902272",
+      "data_source": {
+        "evaluation_set": "projects/PROJECT_NUMBER/locations/us-central1/evaluationSets/147816144214949888"
+      },
+      "evaluation_run_results": {
+        "evaluation_set": "projects/PROJECT_NUMBER/locations/us-central1/evaluationSets/3585751509758902272",
+        "summary_metrics": {
+          "metrics": {
+            "Candidate 1/final_response_match_v2/STANDARD_DEVIATION": 0,
+            "Candidate 1/final_response_match_v2/VARIANCE": 0,
+            "Candidate 1/final_response_match_v2/PERCENTILE_P90": 1,
+            "Candidate 1/final_response_match_v2/AVERAGE": 1,
+            "Candidate 1/final_response_match_v2/MAXIMUM": 1,
+            "Candidate 1/final_response_match_v2/PERCENTILE_P99": 1,
+            "Candidate 1/final_response_match_v2/MODE": 1,
+            "Candidate 1/final_response_match_v2/MINIMUM": 1,
+            "Candidate 1/final_response_match_v2/PERCENTILE_P95": 1,
+            "Candidate 1/final_response_match_v2/MEDIAN": 1
+          },
+          "total_items": 2
+        }
+      },
+      "evaluation_config": {
+        "metrics": [
+          {
+            "metric": "final_response_match_v2",
+            "metric_config": {
+              "predefined_metric_spec": {
+                "metric_spec_name": "final_response_match_v2"
+              }
+            }
+          }
+        ],
+        "output_config": {
+          "gcs_destination": {
+            "output_uri_prefix": "gs://YOUR_PROOF_BUCKET/regional-candidate"
+          }
+        },
+        "allow_cross_region_model": true
+      },
+      "inference_configs": {
+        "candidate 1": {
+          "model": "projects/YOUR_PROJECT_ID/locations/global/publishers/google/models/gemini-3.8-flash"
+        }
+      }
+    }
+  },
+  "experiments": {
+    "sdk": {
+      "name": "projects/PROJECT_NUMBER/locations/global/evaluationExperiments/8348829284214767616",
+      "display_name": "POC UI proof — SDK explicit — 2026-10-24",
+      "metadata": {
+        "purpose": "Saved support traces; separate regrading; no agent execution"
+      }
+    },
+    "regional": {
+      "name": "projects/PROJECT_NUMBER/locations/us-central1/evaluationExperiments/4856164627886637056",
+      "display_name": "POC UI proof — regional SDK — 2026-10-24"
+    }
+  },
+  "original_score_api_readback": [
+    {
+      "experiment_name": "adk-eval-ui-proof-20261024",
+      "run_name": "existing-native-scores",
+      "run_type": "system.ExperimentRun",
+      "state": "COMPLETE",
+      "param.source_sha256": "6999f51a50024709f8f5703119413a5826b0febf632eec08fcce8463e50c7dd7",
+      "param.native_metric": "final_response_match_v2",
+      "param.source_file": "PRIVATE_ORIGINAL_GRADE_FILE",
+      "param.publication_mode": "existing Google scores; no regrading",
+      "metric.native_error_cases": 0.0,
+      "metric.case_0_native_score": 1.0,
+      "metric.native_valid_cases": 2.0,
+      "metric.native_mean_score": 1.0,
+      "metric.native_pass_rate": 1.0,
+      "metric.case_1_native_score": 1.0
+    }
+  ],
+  "sdk_failure": {
+    "type": "ValueError",
+    "message": "Unsupported metric type or invalid metric name: final_response_match"
+  }
+}

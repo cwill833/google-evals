@@ -1,0 +1,28 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "policy",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Search the transfer policy. What is the daily limit and fee? Cite the policy ID."
+          }
+        ]
+      },
+      "context": "POL-001: Internal simulated transfers have a cumulative $500 USD limit per UTC calendar day for C001 within one active session, across all owned source accounts. Transfers update only the session-local simulated balances and ledger. A new session resets the ledger and limit; this is not a cross-session banking limit. Transfers require explicit authorization of the source, destination, and amount. There is no transfer fee."
+    },
+    {
+      "eval_case_id": "no_invention",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Search the support hours policy. Does it promise weekend support? Cite the policy ID."
+          }
+        ]
+      },
+      "context": "POL-002: Support is available Monday through Friday, 09:00 to 17:00 UTC. No weekend support is promised."
+    }
+  ]
+}
