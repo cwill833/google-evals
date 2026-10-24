@@ -1,0 +1,52 @@
+{
+  "eval_case_results": [
+    {
+      "eval_case_index": 0,
+      "response_candidate_results": [
+        {
+          "response_index": 0,
+          "metric_results": {
+            "final_response_match_v2": {
+              "metric_name": "final_response_match_v2",
+              "score": 1.0,
+              "explanation": "The user asked to retrieve ticket T101 and wanted its exact JSON object.\nThe agent response provides a JSON object: `{\"status\": \"open\", \"subject\": \"Printer offline\", \"ticket_id\": \"T101\"}`.\nThe reference response provides a JSON object: `{\"ticket_id\": \"T101\", \"subject\": \"Printer offline\", \"status\": \"open\"}`.\nBoth the agent's JSON output and the reference's JSON output contain the exact same key-value pairs, only differing in the order of keys, which is generally considered equivalent for JSON objects unless specific ordering is enforced. Since the content is identical, the agent's response correctly fulfills the user's request.",
+              "rubric_verdicts": null,
+              "raw_output": null,
+              "error_message": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "eval_case_index": 1,
+      "response_candidate_results": [
+        {
+          "response_index": 0,
+          "metric_results": {
+            "final_response_match_v2": {
+              "metric_name": "final_response_match_v2",
+              "score": 1.0,
+              "explanation": "The user asked for the exact JSON object for ticket T202.\nThe agent response provides a JSON object with keys 'status', 'subject', and 'ticket_id' and their corresponding values 'open', 'VPN access', and 'T202'.\nThe reference response also provides a JSON object with the same keys ('ticket_id', 'subject', 'status') and the same corresponding values ('T202', 'VPN access', 'open').\nAlthough the order of keys in the JSON objects differs between the agent and reference responses, in JSON, the order of keys in an object is generally not considered significant unless a specific schema or API documentation mandates a strict order. All key-value pairs are identical.\nTherefore, the agent's response correctly provides the requested information in a valid JSON format, containing all the exact data points.",
+              "rubric_verdicts": null,
+              "raw_output": null,
+              "error_message": null
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "summary_metrics": [
+    {
+      "metric_name": "final_response_match_v2",
+      "num_cases_total": 2,
+      "num_cases_valid": 2,
+      "num_cases_error": 0,
+      "mean_score": 1.0,
+      "stdev_score": 0.0,
+      "pass_rate": 1.0
+    }
+  ],
+  "win_rates": null
+}

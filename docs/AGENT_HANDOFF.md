@@ -65,6 +65,9 @@ Read these in order:
 6. [Hardening](HARDENING.md) and [results](RESULTS.md): review fixes, historical measurements
    and what was actually verified. Upstream issue notes are recorded research, not a
    guarantee of their current resolution status.
+7. [Google UI publication research](GOOGLE_UI_RESEARCH.md): a small curated live-evidence
+   exception to the archive exclusion, plus reproduction commands. Distinguish successful
+   original-score publication to Experiments from incomplete native Evaluation UI rendering.
 
 ## Follow a run through the code
 

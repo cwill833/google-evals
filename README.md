@@ -37,6 +37,7 @@ Then choose your path:
 | Run the supplied examples with real Google grades | Cloud setup and reusable harness commands below |
 | Evaluate an already deployed agent | [Hosted contract and configuration](docs/HOSTED_AND_REPORTS.md); the metadata extension is required |
 | Inspect results or recover failed grading | [Reports](docs/HOSTED_AND_REPORTS.md#read-or-regenerate-a-report) and [recovery](docs/QUEUE_AND_RECOVERY.md) |
+| Explore Google UI publication without changing the harness | [Measured UI research, retained native results and reproduction](docs/GOOGLE_UI_RESEARCH.md) |
 
 Local execution of a Gemini agent still calls Google and is billable. The offline checks
 above do not establish new live quality scores or hosted compatibility for your agent.
@@ -48,6 +49,12 @@ and [RESULTS.md](docs/RESULTS.md). Source control and the source ZIP exclude gen
 runs, reports and verification sidecars. Historical native evidence stays in a local
 archive and can be supplied separately for replay. A fresh checkout runs all offline
 contract tests using small synthetic fixtures, without that archive or cloud access.
+
+One small, explicitly curated exception is the [Google UI research bundle](docs/GOOGLE_UI_RESEARCH.md):
+two saved fictional support cases and sanitized native results from four cloud regrades.
+It preserves the publication research without importing the historical run archive.
+Existing-score publication to Experiments worked; richer Evaluation UI grade visibility
+remained incomplete. This is an optional research probe, not built-in UI synchronization.
 
 **Quota-aware grading and explicit recovery:** one-host shared dispatch budgets, immutable grading attempts, and recovery of unavailable grades without agent reruns. See [queue and recovery](docs/QUEUE_AND_RECOVERY.md), [review and load results](docs/REVIEW_AND_LOAD.md), and [all evaluation results](docs/RESULTS.md).
 

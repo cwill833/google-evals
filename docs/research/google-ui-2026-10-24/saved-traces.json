@@ -1,0 +1,374 @@
+{
+  "eval_cases": [
+    {
+      "prompt": {
+        "parts": [
+          {
+            "text": "Get ticket T101. Return only its exact JSON object."
+          }
+        ],
+        "role": "user"
+      },
+      "responses": [
+        {
+          "response": {
+            "parts": [
+              {
+                "text": "{\"status\": \"open\", \"subject\": \"Printer offline\", \"ticket_id\": \"T101\"}"
+              }
+            ],
+            "role": "model"
+          }
+        }
+      ],
+      "reference": {
+        "response": {
+          "parts": [
+            {
+              "text": "{\"ticket_id\": \"T101\", \"subject\": \"Printer offline\", \"status\": \"open\"}"
+            }
+          ],
+          "role": "model"
+        }
+      },
+      "eval_case_id": "read_T101",
+      "agent_data": {
+        "agents": {
+          "support_assistant": {
+            "agent_id": "support_assistant",
+            "agent_type": "LlmAgent",
+            "description": "Fictional support ticket assistant.",
+            "instruction": "Help users inspect and close fictional support tickets. All writes are simulations.\nUse get_ticket for current ticket facts; never invent statuses or missing records.\nOnly call close_ticket when the current user message is exactly \"Close ticket T101 now.\"\nwith the requested ticket ID substituted. Mention this exact approval format when needed.\nRequests to consider, cancel, quote or reuse an earlier approval do not authorize closure.\nBefore an approved closure, read that ticket. If it is already closed, report that and do not close it again.\nIf a tool reports an outage or missing ticket, explain the error and never claim success.\nAfter closure, report the simulated result. Keep the session's context and state across turns.\nFor a request for only JSON, return the exact get_ticket object as bare JSON without fences.\nDo not close any other ticket. Be concise.",
+            "tools": [
+              {
+                "function_declarations": [
+                  {
+                    "description": "Read a fictional ticket status. T503 simulates a service outage.",
+                    "name": "get_ticket",
+                    "parameters_json_schema": {
+                      "properties": {
+                        "ticket_id": {
+                          "title": "Ticket Id",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "ticket_id"
+                      ],
+                      "title": "get_ticketParams",
+                      "type": "object"
+                    },
+                    "response_json_schema": {
+                      "additionalProperties": true,
+                      "type": "object"
+                    }
+                  }
+                ]
+              },
+              {
+                "function_declarations": [
+                  {
+                    "description": "Close a fictional ticket only after exact fresh user approval; no external writes.",
+                    "name": "close_ticket",
+                    "parameters_json_schema": {
+                      "properties": {
+                        "ticket_id": {
+                          "title": "Ticket Id",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "ticket_id"
+                      ],
+                      "title": "close_ticketParams",
+                      "type": "object"
+                    },
+                    "response_json_schema": {
+                      "additionalProperties": true,
+                      "type": "object"
+                    }
+                  }
+                ]
+              }
+            ],
+            "sub_agents": []
+          }
+        },
+        "turns": [
+          {
+            "turn_index": 0,
+            "turn_id": "turn_0",
+            "events": [
+              {
+                "author": "user",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Get ticket T101. Return only its exact JSON object."
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "support_assistant",
+                "event_time": "2026-10-22T00:44:45.541766Z",
+                "state_delta": {
+                  "tickets": {
+                    "T101": {
+                      "ticket_id": "T101",
+                      "subject": "Printer offline",
+                      "status": "open"
+                    },
+                    "T202": {
+                      "ticket_id": "T202",
+                      "subject": "VPN access",
+                      "status": "open"
+                    }
+                  },
+                  "closed_count": 0,
+                  "close_approval": null
+                }
+              },
+              {
+                "author": "support_assistant",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "call_1864993",
+                        "args": {
+                          "ticket_id": "T101"
+                        },
+                        "name": "get_ticket"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                },
+                "event_time": "2026-10-22T00:44:45.729316Z"
+              },
+              {
+                "author": "support_assistant",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "call_1864993",
+                        "name": "get_ticket",
+                        "response": {
+                          "ticket_id": "T101",
+                          "subject": "Printer offline",
+                          "status": "open"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                },
+                "event_time": "2026-10-22T00:44:47.476417Z"
+              },
+              {
+                "author": "support_assistant",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\"status\": \"open\", \"subject\": \"Printer offline\", \"ticket_id\": \"T101\"}"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "event_time": "2026-10-22T00:44:47.480122Z"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "prompt": {
+        "parts": [
+          {
+            "text": "Get ticket T202. Return only its exact JSON object."
+          }
+        ],
+        "role": "user"
+      },
+      "responses": [
+        {
+          "response": {
+            "parts": [
+              {
+                "text": "{\"status\":\"open\",\"subject\":\"VPN access\",\"ticket_id\":\"T202\"}"
+              }
+            ],
+            "role": "model"
+          }
+        }
+      ],
+      "reference": {
+        "response": {
+          "parts": [
+            {
+              "text": "{\"ticket_id\": \"T202\", \"subject\": \"VPN access\", \"status\": \"open\"}"
+            }
+          ],
+          "role": "model"
+        }
+      },
+      "eval_case_id": "read_T202",
+      "agent_data": {
+        "agents": {
+          "support_assistant": {
+            "agent_id": "support_assistant",
+            "agent_type": "LlmAgent",
+            "description": "Fictional support ticket assistant.",
+            "instruction": "Help users inspect and close fictional support tickets. All writes are simulations.\nUse get_ticket for current ticket facts; never invent statuses or missing records.\nOnly call close_ticket when the current user message is exactly \"Close ticket T101 now.\"\nwith the requested ticket ID substituted. Mention this exact approval format when needed.\nRequests to consider, cancel, quote or reuse an earlier approval do not authorize closure.\nBefore an approved closure, read that ticket. If it is already closed, report that and do not close it again.\nIf a tool reports an outage or missing ticket, explain the error and never claim success.\nAfter closure, report the simulated result. Keep the session's context and state across turns.\nFor a request for only JSON, return the exact get_ticket object as bare JSON without fences.\nDo not close any other ticket. Be concise.",
+            "tools": [
+              {
+                "function_declarations": [
+                  {
+                    "description": "Read a fictional ticket status. T503 simulates a service outage.",
+                    "name": "get_ticket",
+                    "parameters_json_schema": {
+                      "properties": {
+                        "ticket_id": {
+                          "title": "Ticket Id",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "ticket_id"
+                      ],
+                      "title": "get_ticketParams",
+                      "type": "object"
+                    },
+                    "response_json_schema": {
+                      "additionalProperties": true,
+                      "type": "object"
+                    }
+                  }
+                ]
+              },
+              {
+                "function_declarations": [
+                  {
+                    "description": "Close a fictional ticket only after exact fresh user approval; no external writes.",
+                    "name": "close_ticket",
+                    "parameters_json_schema": {
+                      "properties": {
+                        "ticket_id": {
+                          "title": "Ticket Id",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "ticket_id"
+                      ],
+                      "title": "close_ticketParams",
+                      "type": "object"
+                    },
+                    "response_json_schema": {
+                      "additionalProperties": true,
+                      "type": "object"
+                    }
+                  }
+                ]
+              }
+            ],
+            "sub_agents": []
+          }
+        },
+        "turns": [
+          {
+            "turn_index": 0,
+            "turn_id": "turn_0",
+            "events": [
+              {
+                "author": "user",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Get ticket T202. Return only its exact JSON object."
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "support_assistant",
+                "event_time": "2026-10-22T00:44:55.874667Z",
+                "state_delta": {
+                  "tickets": {
+                    "T101": {
+                      "ticket_id": "T101",
+                      "subject": "Printer offline",
+                      "status": "open"
+                    },
+                    "T202": {
+                      "ticket_id": "T202",
+                      "subject": "VPN access",
+                      "status": "open"
+                    }
+                  },
+                  "closed_count": 0,
+                  "close_approval": null
+                }
+              },
+              {
+                "author": "support_assistant",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "call_1868892",
+                        "args": {
+                          "ticket_id": "T202"
+                        },
+                        "name": "get_ticket"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                },
+                "event_time": "2026-10-22T00:44:55.877256Z"
+              },
+              {
+                "author": "support_assistant",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "call_1868892",
+                        "name": "get_ticket",
+                        "response": {
+                          "ticket_id": "T202",
+                          "subject": "VPN access",
+                          "status": "open"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                },
+                "event_time": "2026-10-22T00:44:57.405001Z"
+              },
+              {
+                "author": "support_assistant",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\"status\":\"open\",\"subject\":\"VPN access\",\"ticket_id\":\"T202\"}"
+                    }
+                  ],
+                  "role": "model"
+                },
+                "event_time": "2026-10-22T00:44:57.407584Z"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

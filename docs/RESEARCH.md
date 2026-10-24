@@ -1,5 +1,9 @@
 # Tooling verification
 
+For the later **2026-10-24** experiment publishing saved runs to Google's UI, see
+[Google UI research](GOOGLE_UI_RESEARCH.md). It includes sanitized live results,
+failed/blocked approaches and reproduction commands; it does not change the harness.
+
 Checked on 2026-10-21. The supplied architecture v2 is a proposal, not execution evidence.
 Its v1.10.0 recommendation is superseded by a fresh package and release check:
 
